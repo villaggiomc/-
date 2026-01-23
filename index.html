@@ -3,100 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VillaggioMC | Official Website</title>
+    <title>VillaggioMC | Official Home</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary: #f1c40f; /* Giallo VillaggioMC */
-            --accent: #e67e22;
+            --primary: #f1c40f;
             --bg: #0a0a0a;
-            --glass: rgba(255, 255, 255, 0.05);
         }
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1614850523296-d8c1af93d400?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-attachment: fixed;
+            background-color: var(--bg);
+            background-image: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);
             color: white;
             margin: 0;
-            text-align: center;
+            overflow-x: hidden;
         }
 
-        /* Navbar */
         nav {
             padding: 20px;
-            background: var(--glass);
+            background: rgba(0,0,0,0.8);
             backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            text-align: center;
+            border-bottom: 2px solid var(--primary);
         }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
+        nav a { color: white; text-decoration: none; margin: 0 15px; font-weight: 600; }
         nav a:hover { color: var(--primary); }
 
-        /* Hero Section */
-        .hero {
-            height: 80vh;
+        .hero-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 85vh;
+            padding: 0 10%;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        /* Colonna Sinistra: L'immagine caricata */
+        .hero-image {
+            flex: 1;
+            max-width: 450px;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 0 20px rgba(241, 196, 15, 0.4));
+        }
+
+        /* Animazione fluttuante */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Colonna Destra: Titolo e Bottoni */
+        .hero-content {
+            flex: 1;
+            text-align: left;
+            min-width: 300px;
+        }
+
+        h1 { font-size: 4.5rem; margin: 0; color: var(--primary); font-weight: 900; line-height: 1; }
+        p { font-size: 1.3rem; opacity: 0.8; margin: 20px 0 40px 0; max-width: 500px; }
+
+        .btn-group {
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            gap: 15px;
+            max-width: 280px;
         }
 
-        h1 { font-size: 4rem; margin-bottom: 10px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
-        .hero p { font-size: 1.5rem; opacity: 0.8; }
-
-        /* IP Box */
-        .ip-box {
-            background: var(--glass);
-            padding: 20px;
-            border-radius: 15px;
-            border: 1px solid rgba(255,255,255,0.1);
-            display: inline-block;
-            cursor: pointer;
-            transition: 0.3s;
-            margin-top: 20px;
-        }
-
-        .ip-box:hover { background: rgba(255,255,255,0.1); transform: scale(1.05); }
-        .ip-box i { color: var(--primary); margin-right: 10px; }
-
-        /* Buttons */
         .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            margin: 10px;
-            border-radius: 10px;
+            padding: 16px 25px;
+            border-radius: 15px;
             text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
+            font-weight: 800;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
+        .btn-discover { background: white; color: black; }
         .btn-discord { background: #5865F2; color: white; }
-        .btn-store { background: var(--primary); color: black; }
+        .btn-staff { background: #e67e22; color: white; }
 
-        /* Sezioni Grid */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 50px 10%;
-        }
+        .btn:hover { transform: scale(1.05) translateX(15px); }
 
-        .feature-card {
-            background: var(--glass);
-            padding: 30px;
-            border-radius: 20px;
-            backdrop-filter: blur(5px);
+        @media (max-width: 768px) {
+            .hero-container { text-align: center; padding: 40px 20px; }
+            .hero-content { text-align: center; }
+            .btn-group { margin: auto; }
+            h1 { font-size: 3rem; }
         }
     </style>
 </head>
@@ -104,43 +109,38 @@
 
 <nav>
     <a href="index.html">HOME</a>
+    <a href="info.html">INFO</a>
     <a href="staff.html">STAFF</a>
-    <a href="ban.html">BAN LIST</a>
-    <a href="#regolamento">REGOLAMENTO</a>
+    <a href="regolamento.html">REGOLAMENTO</a>
 </nav>
 
-<div class="hero">
-    <h1>VILLAGGIO MC</h1>
-    <p>Il server cross-play più epico della classe!</p>
+<div class="hero-container">
     
-    <div class="ip-box" onclick="copyIP()">
-        <span id="ip-text"><i class="fas fa-server"></i> villaggiomc.mcsh.io</span>
-        <br><small>(Clicca per copiare)</small>
+    <div class="hero-image">
+        <img src="VillaggioMc_Imaggine.png" alt="VillaggioMC Logo">
     </div>
 
-    <div>
-        <a href="https://discord.gg/TUOINVITO" class="btn btn-discord"><i class="fab fa-discord"></i> ENTRA SU DISCORD</a>
-        <a href="#store" class="btn btn-store"><i class="fas fa-shopping-cart"></i> STORE</a>
+    <div class="hero-content">
+        <h1>VILLAGGIO MC</h1>
+        <p>Entra nel server cross-play più divertente! Sopravvivenza, BedWars, Duels e una community fantastica ti aspettano.</p>
+        
+        <div class="btn-group">
+            <a href="info.html" class="btn btn-discover">
+                <i class="fas fa-play"></i> Scopri!
+            </a>
+            <a href="https://discord.gg/TUOINVITO" class="btn btn-discord">
+                <i class="fab fa-discord"></i> Discord
+            </a>
+            <a href="staff.html" class="btn btn-staff">
+                <i class="fas fa-user-shield"></i> Staff Team
+            </a>
+        </div>
     </div>
+
 </div>
 
-<div class="features">
-    <div class="feature-card" id="regolamento">
-        <h2>📜 Regolamento</h2>
-        <p>1. No Griefing<br>2. Rispetto per lo Staff<br>3. No Cheat</p>
-    </div>
-    <div class="feature-card" id="store">
-        <h2>💎 Store</h2>
-        <p>Supporta il server e ottieni vantaggi esclusivi in game!</p>
-        <button class="btn btn-store">Vai allo Store</button>
-    </div>
-</div>
-
-<script>
-    function copyIP() {
-        const ip = "villaggiomc.mcsh.io";
-        navigator.clipboard.writeText(ip);
-        alert("IP Copiato: " + ip + "\nOra incollalo su Minecraft!");
+</body>
+</html>
     }
 </script>
 
