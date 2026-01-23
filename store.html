@@ -3,39 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Store Professionale - VillaggioMC</title>
+    <title>Store | VillaggioMC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        body { margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; background: #1a2a1a; color: white; display: flex; flex-direction: column; align-items: center; }
-        .nav { width: 100%; padding: 20px; background: rgba(0,0,0,0.5); text-align: center; }
-        .nav a { color: #f1c40f; text-decoration: none; font-weight: bold; margin: 0 20px; }
-        .store-header { margin: 40px 0; text-align: center; }
-        .store-header h1 { color: #f1c40f; font-size: 42px; text-shadow: 2px 2px #000; }
-        .category-title { color: #f1c40f; width: 90%; max-width: 1000px; border-bottom: 2px solid #f1c40f; margin: 30px 0 20px; padding-bottom: 10px; font-size: 24px; text-transform: uppercase; }
-        .grid-store { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; width: 90%; max-width: 1000px; margin-bottom: 40px; }
-        .card { background: #2d4a2d; border: 2px solid #f1c40f; border-radius: 20px; padding: 20px; text-align: center; transition: 0.3s; }
-        .card:hover { transform: scale(1.03); }
-        .price { font-size: 24px; color: #f1c40f; font-weight: bold; margin: 10px 0; }
-        .features { list-style: none; padding: 0; text-align: left; font-size: 14px; margin: 15px 0; }
-        .features li { margin-bottom: 5px; }
-        .btn-buy { display: block; background: #f1c40f; color: #1a2a1a; padding: 12px; border-radius: 10px; text-decoration: none; font-weight: bold; }
+        :root {
+            --primary: #f1c40f;
+            --bg: #0a0a0a;
+            --card: rgba(255, 255, 255, 0.05);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg);
+            background-image: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);
+            color: white;
+            margin: 0;
+            text-align: center;
+        }
+
+        nav {
+            padding: 20px;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--primary);
+        }
+
+        nav a { color: white; text-decoration: none; margin: 0 15px; font-weight: 600; }
+        nav a:hover { color: var(--primary); }
+
+        .container { max-width: 1100px; margin: 60px auto; padding: 0 20px; }
+
+        h1 { font-size: 3.5rem; color: var(--primary); margin-bottom: 10px; font-weight: 800; }
+        .subtitle { opacity: 0.7; margin-bottom: 50px; font-size: 1.2rem; }
+
+        .store-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .package-card {
+            background: var(--card);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 25px;
+            padding: 40px 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .package-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 40px rgba(241, 196, 15, 0.15);
+        }
+
+        .package-card i { font-size: 3rem; color: var(--primary); margin-bottom: 20px; }
+        
+        .price { font-size: 2rem; font-weight: 800; margin: 15px 0; color: #2ecc71; }
+        
+        .features-list { list-style: none; padding: 0; margin: 20px 0; font-size: 0.9rem; opacity: 0.8; }
+        .features-list li { margin: 8px 0; }
+
+        .btn-buy {
+            background: var(--primary);
+            color: black;
+            padding: 12px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 800;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .btn-buy:hover { transform: scale(1.1); filter: brightness(1.1); }
+
+        .featured { border: 2px solid var(--primary); background: rgba(241, 196, 15, 0.05); }
+        .badge { position: absolute; top: 15px; right: -30px; background: var(--primary); color: black; padding: 5px 40px; transform: rotate(45deg); font-size: 0.7rem; font-weight: 800; }
     </style>
 </head>
 <body>
-    <div class="nav"><a href="index.html">← Torna alla Home</a></div>
-    <div class="store-header"><h1>🛒 Store VillaggioMC</h1><p>Supporta la nostra community!</p></div>
 
-    <div class="category-title">⭐ Gradi (Rank)</div>
-    <div class="grid-store">
-        <div class="card"><h3>Rank EROE</h3><div class="price">€4.99</div><ul class="features"><li>✅ Comando /fly</li><li>✅ Kit Eroe</li><li>✅ Tag [EROE]</li></ul><a href="https://discord.gg/7ChEGbC9Vu" class="btn-buy">ACQUISTA</a></div>
-        <div class="card"><h3>Rank LEGENDA</h3><div class="price">€9.99</div><ul class="features"><li>✅ Vantaggi Eroe</li><li>✅ 5 Home</li><li>✅ Chat Colorata</li></ul><a href="https://discord.gg/7ChEGbC9Vu" class="btn-buy">ACQUISTA</a></div>
-        <div class="card" style="box-shadow: 0 0 15px #f1c40f;"><h3>Rank DIO</h3><div class="price">€19.99</div><ul class="features"><li>✅ Tutti i permessi</li><li>✅ Kit Divino</li><li>✅ Scia Particellare</li></ul><a href="https://discord.gg/7ChEGbC9Vu" class="btn-buy">ACQUISTA</a></div>
-    </div>
+<nav>
+    <a href="index.html">HOME</a>
+    <a href="info.html">INFO</a>
+    <a href="staff.html">STAFF</a>
+    <a href="store.html" style="color: var(--primary);">STORE</a>
+</nav>
 
-    <div class="category-title">🔑 Casse & Chiavi</div>
-    <div class="grid-store">
-        <div class="card"><h3>3x Chiavi Rare</h3><div class="price">€2.50</div><a href="https://discord.gg/7ChEGbC9Vu" class="btn-buy">ACQUISTA</a></div>
-        <div class="card"><h3>5x Chiavi Epiche</h3><div class="price">€5.00</div><a href="https://discord.gg/7ChEGbC9Vu" class="btn-buy">ACQUISTA</a></div>
-        <div class="card"><h3>1x Chiave Divina</h3><div class="price">€7.00</div><a href="https://discord.gg/7ChEGbC9Vu" class="btn-buy">ACQUISTA</a></div>
+<div class="container">
+    <h1>STORE UFFICIALE</h1>
+    <p class="subtitle">Supporta VillaggioMC e ottieni vantaggi esclusivi nel gioco!</p>
+
+    <div class="store-grid">
+        <div class="package-card">
+            <i class="fas fa-crown"></i>
+            <h2>RANK INVINCIBLE</h2>
+            <div class="price">€4.99</div>
+            <ul class="features-list">
+                <li><i class="fas fa-check"></i> Prefisso [VIP] in chat</li>
+                <li><i class="fas fa-check"></i> Accesso a /fly nella Lobby</li>
+                <li><i class="fas fa-check"></i> Slot riservato nei server pieni</li>
+            </ul>
+            <a href="#" class="btn-buy">ACQUISTA ORA</a>
+        </div>
+
+        <div class="package-card featured">
+            <div class="badge">POPOLARE</div>
+            <i class="fas fa-gem"></i>
+            <h2>RANK MARIOX</h2>
+            <div class="price">€9.99</div>
+            <ul class="features-list">
+                <li><i class="fas fa-check"></i> Tutti i vantaggi del VIP</li>
+                <li><i class="fas fa-check"></i> Colore chat personalizzato</li>
+                <li><i class="fas fa-check"></i> Kit settimanale speciale</li>
+                <li><i class="fas fa-check"></i> Crea fino a 10 Home</li>
+            </ul>
+            <a href="#" class="btn-buy">ACQUISTA ORA</a>
+        </div>
+
+        <div class="package-card">
+            <i class="fas fa-coins"></i>
+            <h2>10.000 Villacoins</h2>
+            <div class="price">€2.50</div>
+            <ul class="features-list">
+                <li><i class="fas fa-check"></i> Monete da usare in gioco</li>
+                <li><i class="fas fa-check"></i> Compra oggetti nello shop</li>
+                <li><i class="fas fa-check"></i> Scambia con altri giocatori</li>
+            </ul>
+            <a href="#" class="btn-buy">ACQUISTA ORA</a>
+        </div>
     </div>
+</div>
+
+<footer>
+    &copy; 2026 VillaggioMC - Gli acquisti aiutano a mantenere il server attivo!
+</footer>
+
 </body>
 </html>
